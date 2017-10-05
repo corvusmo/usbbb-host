@@ -99,7 +99,7 @@ static SDL_Rect* rect_sensor(int sensor, SDL_Rect* r, int border) {
   } else if(sensor < 80) { // top
     r->w = 56+border*2;
     r->h = 16+border*2;
-    r->x = 82-border + (sensor-72)*60;
+    r->x = 82-border + (7-(sensor-72))*60;
     r->y = 2-border;
   } else if(sensor < 88) { // left
     r->w = 16+border*2;
@@ -125,7 +125,7 @@ static int sensor_pos(int x, int y) {
     sensor = 64 + 7 - (y-(20+60))/60;
   } else if(y < 20 && x >= (20+60) && x < (20+540)) {
     // sensors top
-    sensor = 72 + (x-(20+60))/60;
+    sensor = 72 + 7 - (x-(20+60))/60;
   } else if(y >= 620 && x >= (20+60) && x < (20+540)) {
     // sensors bottom
     sensor = 88 + (x-(20+60))/60;
